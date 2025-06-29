@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:dart_lesson_8/names.dart';
 
 //Task 1
 void runTask1() {
@@ -62,4 +63,24 @@ void runTask1() {
   print(temp.length);
 }
 
+//Task 2
+void runTask2() {
+  // Завдання 6 / 7
+  Set<String> ukrainianNamesSet1 = ukrainianNames1.toSet();
+  Set<String> ukrainianNamesSet2 = ukrainianNames2.toSet();
+
+  // Завдання 8
+  Set<String> namesUnion = ukrainianNamesSet1.union(ukrainianNamesSet2);
+  print(namesUnion);
+  print(namesUnion.length);
+
+  // Завдання 9
+  Set<String> namesIntersection = ukrainianNamesSet1.intersection(ukrainianNamesSet2);
+  print(namesIntersection);
+
+  // Завдання 10
+  Set<String> namesDifference = ukrainianNamesSet1.difference(ukrainianNamesSet2);
+  print(namesDifference);
+
+}
 
