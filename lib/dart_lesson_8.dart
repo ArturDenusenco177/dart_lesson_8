@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:dart_lesson_8/names.dart';
+import 'package:word_generator/word_generator.dart';
 
 //Task 1
 void runTask1() {
@@ -75,12 +76,51 @@ void runTask2() {
   print(namesUnion.length);
 
   // Завдання 9
-  Set<String> namesIntersection = ukrainianNamesSet1.intersection(ukrainianNamesSet2);
+  Set<String> namesIntersection = ukrainianNamesSet1.intersection(
+    ukrainianNamesSet2,
+  );
   print(namesIntersection);
 
   // Завдання 10
-  Set<String> namesDifference = ukrainianNamesSet1.difference(ukrainianNamesSet2);
+  Set<String> namesDifference = ukrainianNamesSet1.difference(
+    ukrainianNamesSet2,
+  );
   print(namesDifference);
-
 }
 
+//Task 3
+void runTask3() {
+  // Завдання 2
+  final wordGenerator = WordGenerator();
+  List<String> nouns = wordGenerator.randomNouns(50);
+  print(nouns);
+
+  // Завдання 3
+  Map<String, int> nounsMap = {};
+  for (String name in nouns) {
+    nounsMap[name] = name.length;
+  }
+  //print(nounsMap);
+
+  // Завдання 4
+  Map<String, int> tempNouns = {};
+  for (final entry in nounsMap.entries) {
+    if (entry.value % 2 == 0) {
+      tempNouns[entry.key] = entry.value;
+    }
+  }
+  print(tempNouns);
+
+  // Завдання 5
+  print(tempNouns.keys.toList());
+
+
+  // Кращий варіант від АІ 
+  // Створення Map: слово -> довжина
+  // final nounsMap = {for (var name in nouns) name: name.length};
+  // Фільтрація: залишити лише ті, де довжина парна
+  //final tempNouns = Map.fromEntries(
+  //  nounsMap.entries.where((entry) => entry.value % 2 == 0),
+  //);
+  //print(tempNouns);
+}
